@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --salmon: #ef9d71;
+    --black: #000;
+    --white: #fff;
+    --cyan: #AEDEE0;
+    --dsalmon: #530521;
+    --dcyan: #1f2f32; /* Corrected variable name typo */
+}
+body{
+    transition: background-color ease-out .8s;
+}
+.vdodiv{
+    clip-path: circle(var(--clip) at 50% 50%);
+}
+
+*::selection {
+    background-color: var(--salmon);
+}
+
+body[theme="black"] {
+    background-color: var(--black);
+    color: var(--white); /* Applied color directly to body instead of .section */
+}
+body[theme="cyan"] {
+    background-color: var(--cyan);
+    color: var(--dcyan);
+}
+body[theme="salmon"] {
+    background-color: var(--salmon);
+    color: var(--dsalmon); /* Use the CSS variable */
+}
+body[theme="white"] {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+/* To apply color to sections specifically if needed */
+body[theme="black"] .section,
+body[theme="cyan"] .section,
+body[theme="salmon"] .section,
+body[theme="white"] .section {
+    color: inherit; /* Sections inherit the color from body */
+}
